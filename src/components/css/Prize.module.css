@@ -1,0 +1,41 @@
+.container {
+	padding: 15px;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 25px;
+}
+
+.container:hover {
+	cursor: pointer;
+	background-image: linear-gradient(to bottom, #ff0844 0%, #ffb199 100%);
+}
+
+.container:hover p {
+	color: white;
+}
+
+
+.container p {
+	padding: 0;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	color: rgb(122, 122, 122);
+}
+
+.container img {
+	width: 30px;
+	height: 30px;
+}
+
+.selected {
+	background-image: linear-gradient(to bottom, #ff822f 0%, #ffb199 100%);
+}
+
+.selected p {
+	color: white;
+}

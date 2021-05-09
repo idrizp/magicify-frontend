@@ -4,18 +4,31 @@ import { useGLTF } from '@react-three/drei'
 import { useSpring } from '@react-spring/core'
 import { animated } from '@react-spring/three'
 import { useFrame } from '@react-three/fiber'
+import useStore from '../utils/store'
+import { downloadModel } from '../utils/api'
 
 export default function MagicStick(props) {
 	const group = useRef()
-
 	const [active, setActive] = useState(false);
+	
+	const generateScene = useStore(state => state.generateScene);
 	const { nodes, materials } = useGLTF('./models/magic_stick.gltf');
+	const { models } = props;
 
 	useEffect(() => {
 		if (active) {
+			useStore.setState({ showPrize: false });
 			setTimeout(() => {
 				setActive(false);
-				// TODO: show prize
+				if (models.length === 0) return;
+				const model = models[Math.floor(Math.random() * models.length)];
+				downloadModel(model.modelPath).then(result => {
+					useStore.setState({ buffer: result, id: model.id, showPrize: true, scene: null });
+					generateScene();
+				}).catch(err => {
+					alert("There was an error downloading that model.");
+					throw err;
+				});
 			}, 2000);
 		}
 	}, [active]);
@@ -24,6 +37,7 @@ export default function MagicStick(props) {
 	useFrame((delta) => {
 		counter+=0.06;
 		const curr = group.current;
+		if (!curr) return;
 		if (active) {
 			if (curr.position.x !== 0) {
 				curr.position.x = 0;

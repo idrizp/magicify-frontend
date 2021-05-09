@@ -1,8 +1,9 @@
 .container {
-	padding: 0;
+	padding: 10px;
 	margin: 0;
 	position: absolute;
-	width: 100%;
+	width: fit-content;
+	height: 100%;
 	z-index: 999;
 	background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 	box-shadow: 0px 0px 10px 0px rgba(0, 91, 234, 0.15);
@@ -12,42 +13,19 @@
 	padding: 0;
 	border-radius: 25px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	list-style: none;
 }
 
-.list li {
-	padding: 15px;
-	margin: 5px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-	border-radius: 25px;
-}
-
-.list li:hover {
-	cursor: pointer;
-	background-image: linear-gradient(to bottom, #ff0844 0%, #ffb199 100%);
-}
-
-.list li:hover p {
-	color: white;
-}
-
-
-.list li p {
-	padding: 0;
-	margin: 0;
-	font-family: "Roboto", sans-serif;
-	font-size: 18px;
-	color: rgb(122, 122, 122);
-}
-
-.list li img {
-	width: 30px;
-	height: 30px;
+.addModel {
+	background-color: white;
+	border: none;
+	font-size: 15px;
+	font-family: Roboto;
+	padding: 20px;
+	border-radius: 5px;
+	width: 100%;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
 }
